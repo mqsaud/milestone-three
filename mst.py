@@ -19,15 +19,39 @@ mongo = PyMongo(mst)
 
 
 @mst.route("/")
-# 
+# Home Page
 @mst.route("/get_recipes")
 def get_recipes():
     recipes = mongo.db.recipes.find()
     return render_template("recipes.html", recipes=recipes)
 
+
+# Registeration Page
 @mst.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        # Check the availabilty of username
+        new_user = mongo.db.users.find_one(
+            {"username": request.form.get("user-name").lower()})
+
+        if new_user:
+            flash("Username already taken. Please use differnet Username.")
+            return redirect(url_for("register"))
+
+        register = {
+            "firstname": request.form.get("fname").lower(),
+            "surname": request.form.get("sname").lower(),
+            "email": request.form.get("email").lower(),
+            "username": request.form.get("user-name").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(register)
+
+        # put the new user into 'session' cookie
+        session["user"] = request.form.get("user-name").lower()
+        flash("Registration Successful!")
     return render_template("register.html")
+
 
 if __name__ == "__main__":
     mst.run(host=os.environ.get("IP"),

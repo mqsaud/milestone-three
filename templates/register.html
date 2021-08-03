@@ -1,15 +1,59 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h2 class="center-align deep-purple-text text-darken-1">Registration</h2>
 
 <div class="row">
-    <form class="col s12 m10 offset-m1">
-      <div class="card-panel teal accent-3">
-        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-        </span>
+  <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('register') }}">
+    <div class="card-panel teal accent-3">
+      <!-- First Name -->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="fas fa-user-plus  deep-purple-text text-darken-4 prefix"></i>
+          <input id="fname" name="fname" type="text" minlength="3" maxlength="15" class="validate" required>
+          <label for="fname">First Name</label>
+        </div>
       </div>
-    </form>
-  </div>
+      <!-- Surname -->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="fas fa-user-plus  deep-purple-text text-darken-4 prefix"></i>
+          <input id="sname" name="sname" type="text" minlength="3" maxlength="15"  class="validate" required>
+          <label for="sname">Surname</label>
+        </div>
+      </div>
+      <!-- Email -->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="fas fa-at  deep-purple-text text-darken-4 prefix"></i>
+          <input id="email" name="email" type="email"   class="validate" required>
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <!-- User Name -->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="fas fa-user-plus  deep-purple-text text-darken-4 prefix"></i>
+          <input id="user-name" name="user-name" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+          <label for="user-name">User Name</label>
+        </div>
+      </div>
+      <!-- Oassword -->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="fas fa-user-lock  deep-purple-text text-darken-4 prefix"></i>
+          <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <!-- Register Button -->
+      <div class="row">
+        <button class="col s12 btn-large amber deep-purple-text text-darken-4 shadow-txt">
+          <strong>Register</strong><i class="fas fa-sign-in-alt"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
 
 {% endblock%}

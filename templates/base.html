@@ -36,7 +36,9 @@
 
         <!-- Mobile navbar -->
         <ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align green-text ">Menu</h4></li>
+            <li>
+                <h4 class="center-align green-text ">Menu</h4>
+            </li>
             <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
             <li><a href="#">User's Profile</a></li>
             <li><a href="#">Add Recepie</a></li>
@@ -47,13 +49,30 @@
         </ul>
 
     </header>
-    <div>
-        <img class="hero" src="{{ url_for('static', filename='images/soup-yellow-bowl.jpg')}}" alt="">
-    </div>
+    <section>
+        <div>
+            <img class="hero" src="{{ url_for('static', filename='images/soup-yellow-bowl.jpg')}}" alt="">
+        </div>
+    </section>
+    <section>
+        <!-- flash message -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashe-msg">
+            <div class="col s12 m10 offset-m1">
+                <h6 class="amber center-align deep-purple-text text-darken-4">{{ message}}</h6>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </section>
+    <main class="container">
+        {% block content %}
 
-    {% block content %}
-    
-    {% endblock %}
+        {% endblock %}
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
