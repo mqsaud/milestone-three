@@ -24,7 +24,6 @@ def get_recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
-
 if __name__ == "__main__":
     mst.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

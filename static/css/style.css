@@ -1,0 +1,12 @@
+.shadow-txt{
+    text-shadow:6px 6px 6px rgba(255, 0, 0, 0.7 );
+}
+
+.nav-wrapper em{
+    padding-left: 20px;
+}
+
+.hero {
+        width: 100%;
+        
+    }

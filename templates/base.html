@@ -1,12 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2c20b60c31.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    {% block styles %}
+    {% endblock %}
     <title>Soup & Soft</title>
 </head>
+
 <body>
-    
+
+    <header>
+        <!-- Main navbar -->
+        <nav class="nav-extended shadow-txt teal accent-3">
+            <div class="nav-wrapper">
+                <a href="{{ url_for('get_recipes') }}" class="brand-logo"><em>Soup & Soft</em></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+                    <li><a href="#">User's Profile</a></li>
+                    <li><a href="#">Add Recepie</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Log In</a></li>
+                    <li><a href="#">Log Out</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Mobile navbar -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><h4 class="center-align green-text ">Menu</h4></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">User's Profile</a></li>
+            <li><a href="#">Add Recepie</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Log In</a></li>
+            <li><a href="#">Log Out</a></li>
+            <li><a href="#">Register</a></li>
+        </ul>
+
+    </header>
+    <div>
+        <img class="hero" src="{{ url_for('static', filename='images/soup-yellow-bowl.jpg')}}" alt="">
+    </div>
+
+    {% block content %}
+    <div>
+        <img class="hero" src="{{ url_for('static', filename='images/soup-yellow-bowl.jpg')}}" alt="">
+    </div>
+    {% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% block scripts %}
+    {% endblock %}
 </body>
+
 </html>
