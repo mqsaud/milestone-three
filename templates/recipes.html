@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 
+{% block hero %}
+<section>
+    <div>
+        <img class="hero" src="{{ url_for('static', filename='images/soup-yellow-bowl.jpg')}}" alt="">
+    </div>
+</section>
+{% endblock %}
 {% block content %}
 
 

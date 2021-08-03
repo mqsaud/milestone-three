@@ -35,32 +35,28 @@
         </nav>
 
         <!-- Mobile navbar -->
-        <ul class="sidenav" id="mobile-demo">
+        <ul class="sidenav teal accent-1 " id="mobile-demo">
             <li>
-                <h4 class="center-align green-text ">Menu</h4>
+                <h4 class="center-align shadow-txt-3 amber deep-purple-text text-darken-4">Menu</h4>
             </li>
-            <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
-            <li><a href="#">User's Profile</a></li>
-            <li><a href="#">Add Recepie</a></li>
-            <li><a href="#">Categories</a></li>
-            <li><a href="#">Log In</a></li>
-            <li><a href="#">Log Out</a></li>
-            <li><a href="{{ url_for('register') }}">Register</a></li>
+            <li><a class="deep-orange-text darken-4-text" href="{{ url_for('get_recipes') }}">Home</a></li>
+            <li><a class="deep-orange-text darken-4-text" href="#">User's Profile</a></li>
+            <li><a class="deep-orange-text darken-4-text"href="#">Add Recepie</a></li>
+            <li><a class="deep-orange-text darken-4-text" href="#">Categories</a></li>
+            <li><a class="deep-orange-text darken-4-text" href="#">Log In</a></li>
+            <li><a class="deep-orange-text darken-4-text" href="#">Log Out</a></li>
+            <li><a class="deep-orange-text darken-4-text" href="{{ url_for('register') }}">Register</a></li>
         </ul>
 
     </header>
-    <section>
-        <div>
-            <img class="hero" src="{{ url_for('static', filename='images/soup-yellow-bowl.jpg')}}" alt="">
-        </div>
-    </section>
+   
     <section>
         <!-- flash message -->
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
         <div class="row flashe-msg">
-            <div class="col s12 m10 offset-m1">
+            <div class="col s12 m10 offset-m1 shadow-txt">
                 <h6 class="amber center-align deep-purple-text text-darken-4">{{ message}}</h6>
             </div>
         </div>
@@ -68,6 +64,12 @@
         {% endif %}
         {% endwith %}
     </section>
+    <!-- Hero Image -->
+    <section>
+        {% block hero %}
+        {% endblock %}
+    </section>
+
     <main class="container">
         {% block content %}
 

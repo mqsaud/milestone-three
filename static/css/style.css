@@ -1,9 +1,15 @@
 .shadow-txt{
     text-shadow:6px 6px 6px rgba(0, 0, 0, 0.5 );
 }
+.shadow-txt-3{
+    text-shadow:3px 3px 3px rgba(0, 0, 0, 0.5 );
+}
 
 .nav-wrapper em{
     padding-left: 20px;
+}
+.text-color{
+    color: white;
 }
 
 .hero {
