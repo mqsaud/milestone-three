@@ -29,7 +29,7 @@
                     <li><a href="#">Categories</a></li>
                     <li><a href="#">Log In</a></li>
                     <li><a href="#">Log Out</a></li>
-                    <li><a href="#">Register</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
                 </ul>
             </div>
         </nav>
@@ -37,13 +37,13 @@
         <!-- Mobile navbar -->
         <ul class="sidenav" id="mobile-demo">
             <li><h4 class="center-align green-text ">Menu</h4></li>
-            <li><a href="#">Home</a></li>
+            <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
             <li><a href="#">User's Profile</a></li>
             <li><a href="#">Add Recepie</a></li>
             <li><a href="#">Categories</a></li>
             <li><a href="#">Log In</a></li>
             <li><a href="#">Log Out</a></li>
-            <li><a href="#">Register</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
         </ul>
 
     </header>
@@ -52,9 +52,7 @@
     </div>
 
     {% block content %}
-    <div>
-        <img class="hero" src="{{ url_for('static', filename='images/soup-yellow-bowl.jpg')}}" alt="">
-    </div>
+    
     {% endblock %}
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
