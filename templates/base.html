@@ -24,7 +24,7 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
-                    <li><a href="#">User's Profile</a></li>
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">User's Profile</a></li>
                     <li><a href="#">Add Recepie</a></li>
                     <li><a href="#">Categories</a></li>
                     <li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -40,7 +40,7 @@
                 <h4 class="center-align shadow-txt-3 amber deep-purple-text text-darken-4">Menu</h4>
             </li>
             <li><a class="deep-orange-text darken-4-text" href="{{ url_for('get_recipes') }}">Home</a></li>
-            <li><a class="deep-orange-text darken-4-text" href="#">User's Profile</a></li>
+            <li><a class="deep-orange-text darken-4-text" href="{{ url_for('profile', username=session['user']) }}">User's Profile</a></li>
             <li><a class="deep-orange-text darken-4-text" href="#">Add Recepie</a></li>
             <li><a class="deep-orange-text darken-4-text" href="#">Categories</a></li>
             <li><a class="deep-orange-text darken-4-text" href="{{ url_for('login') }}">Log In</a></li>
