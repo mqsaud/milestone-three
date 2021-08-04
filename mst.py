@@ -53,6 +53,34 @@ def register():
     return render_template("register.html")
 
 
+# Log In page
+@mst.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # Chick if the username exists in database?
+        check_user = mongo.db.users.find_one(
+            {"username": request.form.get("user-name").lower()})
+
+        if check_user:
+            # ensure the hash of newly supplied psaawoad is same as the hash of
+            # stored password.
+            if check_password_hash(
+                check_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("user-name").lower()
+                flash("Welcom, {}".format(request.form.get("user-name")))
+            else:
+                # Invalid password match
+                flash("Incorrect Username or Password")
+                return redirect(url_for("login"))
+
+        else:
+            # username does not rxists
+            flash("Incorrect Username or Password")
+            return redirect(url_for("login"))
+ 
+    return render_template("login.html")
+
+
 if __name__ == "__main__":
     mst.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
