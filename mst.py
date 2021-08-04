@@ -20,9 +20,15 @@ mongo = PyMongo(mst)
 
 @mst.route("/")
 # Home Page
+@mst.route("/home")
+def home():
+    recipes = mongo.db.recipes.find()
+    return render_template("home.html", recipes=recipes)
+
+
 @mst.route("/get_recipes")
 def get_recipes():
-    recipes = mongo.db.recipes.find()
+    recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
 
 
@@ -101,6 +107,18 @@ def logout():
     flash("You hav been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+# Search
+@mst.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    if len(recipes) == 0:
+        flash(f"Sorry, There are no recipe containing  {query} :( ")
+    else:
+        flash(f"We found {len(recipes)} result(s) :)")
+    return render_template("recipes.html", recipes=recipes)
 
 
 if __name__ == "__main__":

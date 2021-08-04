@@ -9,12 +9,22 @@
       <h3 class="amber deep-purple-text text-darken-4 shadow-txt-3 center-align">
         {{username}}'s Profile
       </h3>
-      
     </div>
   </div>
 </div>
 
 
-    
+{% for recipe in recipes %}
+  {{ recipe.category }}<br>
+  {{ recipe.recipe_name }}<br>
+  {{ recipe.ingredients }}<br>
+  {{ recipe.method}}<br>
+  {{ recipe.shared_by }}
+{% endfor %}
 
 {% endblock%}
+
+
+
+  
+
