@@ -26,10 +26,29 @@ def home():
     return render_template("home.html", recipes=recipes)
 
 
+# Get Recipes
 @mst.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
+
+
+# Add Recipec
+@mst.route("/add_recipe", methods=["GET", "POST"])
+def add_recipe():
+    if request.method == "POST":
+        add_recipe = {
+            "recipe_name": request.form.get("recipe_name").lower(),
+            "category_name": request.form.get("category_name").lower(),
+            "img_url": request.form.get("img_url"),
+            "ingredients": request.form.get("ingredients").lower(),
+            "method": request.form.get("method").lower(),
+            "shared_by": session["user"]
+        }
+        mongo.db.recipes.insert_one(add_recipe)
+        flash("Your Recipe Succeccfully Added")
+
+    return render_template("add_recipe.html")
 
 
 # Registeration Page

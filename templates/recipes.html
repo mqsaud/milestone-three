@@ -34,20 +34,26 @@
             </div>
         </form>
     </div> 
+</div>
 
-    <!-- Category dropdown -->
-    
+<div class="row">
+    {% for recipe in recipes %}
+        <div class="col s12 m6 l4 ">
+            <h5 class="center-align purple-text">{{ recipe.recipe_name }}</h5>
+                <div class="img-border ">
+                  <img class="responsive-image " src="{{ recipe.img_url }}"
+                    alt="image of {{ recipe.recipe_name }}" />
+                </div>
+            <p><strong class="purple-text">Ingredients:</strong> {{ recipe.ingredients }}</p>
+            <p><strong class="purple-text">Method:</strong> {{ recipe.method}}</p>
+            <p><strong class="purple-text">Category:</strong> {{ recipe.category_name }}</p>
+            <p><strong class="purple-text">Shared by:</strong> {{ recipe.shared_by }}</p>
+        </div>
+    {% endfor %}
 
-    
+
 </div>
 
 
-    {% for recipe in recipes %}
-    {{ recipe.category }}<br>
-    {{ recipe.recipe_name }}<br>
-    {{ recipe.ingredients }}<br>
-    {{ recipe.method}}<br>
-    {{ recipe.shared_by }}
-    {% endfor %}
     
 {% endblock %}

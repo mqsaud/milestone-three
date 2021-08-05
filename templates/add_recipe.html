@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row ">
+    <div class="col s12 m10 offset-m1">
+      <div class="card-panel teal accent-3">
+        <h3 class="amber deep-purple-text text-darken-4 shadow-txt-3 center-align">
+          Add Recipe
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('add_recipe') }}">
+      <div class="card-panel teal accent-3">
+        <!-- Recipe Name -->
+        <div class="row">
+          <div class="input-field col s12">
+            <input 
+            id="recipe_name" 
+            name="recipe_name" 
+            type="text" 
+            minlength="3" 
+            maxlength="15" 
+            class="validate"
+            class="validate" 
+            required>
+            <label for="recipe_name">Recipe Name</label>
+          </div>
+        </div>
+        <!-- Category -->
+        <div class="row">
+          <div class="input-field col s12">
+            <input 
+            id="category_name" 
+            name="category_name" 
+            type="text"   
+            class="validate" 
+            required>
+            <label for="category_name">Category</label>
+          </div>
+        </div>
+        <!-- Image url -->
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="img_url" 
+            name="img_url"
+            type="url" 
+            pattern="https://.*"  
+            class="validate"
+            value="https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/potatosoup_11631_16x9.jpg" 
+            required>
+            <label for="img_url">Image url</label>
+            <span class="helper-text" data-error="enter valid URL" data-success="Correct!">If you don't url of image, keep the default one.</span>
+          </div>
+        </div>
+    
+        <!-- Ingredients -->
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea 
+            id="ingredients" 
+            name="ingredients" 
+            type="text" 
+            class="validate materialize-textarea" 
+            required></textarea>
+            <label for="ingredients">Ingredients</label>
+          </div>
+        </div>
+
+         <!--Method  -->
+         <div class="row">
+          <div class="input-field col s12">
+            <textarea 
+            id="method" 
+            name="method" 
+            type="text" 
+            class="validate materialize-textarea" 
+            required></textarea>
+            <label for="method">Method</label>
+          </div>
+        </div>
+        <!-- Register Button -->
+        <div class="row ">
+          <button class="col s12 btn-large amber deep-purple-text text-darken-4 shadow-txt-3">
+            <strong>Add Recipe &nbsp</strong><i class="fas fa-sign-in-alt icon"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}
