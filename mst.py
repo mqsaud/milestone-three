@@ -37,13 +37,15 @@ def get_recipes():
 @mst.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
+        veg_no_veg = "on" if request.form.get("veg_no_veg") else "off"
         add_recipe = {
             "recipe_name": request.form.get("recipe_name").lower(),
             "category_name": request.form.get("category_name").lower(),
             "img_url": request.form.get("img_url"),
             "ingredients": request.form.get("ingredients").lower(),
             "method": request.form.get("method").lower(),
-            "shared_by": session["user"]
+            "shared_by": session["user"],
+            "veg_no_veg": veg_no_veg
         }
         mongo.db.recipes.insert_one(add_recipe)
         flash("Your Recipe Succeccfully Added")

@@ -40,6 +40,11 @@
     {% for recipe in recipes %}
         <div class="col s12 m6 l4 ">
             <h5 class="center-align purple-text">{{ recipe.recipe_name }}</h5>
+            {% if recipe.veg_no_veg == "on" %}
+                <h6 class="center-align green-text"> Vegetarian!</h6>
+            {% else %}
+                <h6 class="center-align red-text"> Non Vegetarian!</h6>
+            {% endif %}
                 <div class="img-border ">
                   <img class="responsive-image " src="{{ recipe.img_url }}"
                     alt="image of {{ recipe.recipe_name }}" />
