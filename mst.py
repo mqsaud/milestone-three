@@ -49,8 +49,8 @@ def add_recipe():
         }
         mongo.db.recipes.insert_one(add_recipe)
         flash("Your Recipe Succeccfully Added")
-
-    return render_template("add_recipe.html")
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_recipe.html", categories=categories)
 
 
 # Registeration Page

@@ -38,7 +38,7 @@
 
 <div class="row">
     {% for recipe in recipes %}
-        <div class="col s12 m6 l4 ">
+        <div class="col s12 m12 l6 xl5 offset-xl1 ">
             <h5 class="center-align purple-text">{{ recipe.recipe_name }}</h5>
             {% if recipe.veg_no_veg == "on" %}
                 <h6 class="center-align green-text"> Vegetarian!</h6>
@@ -52,7 +52,7 @@
             <p><strong class="purple-text">Ingredients:</strong> {{ recipe.ingredients }}</p>
             <p><strong class="purple-text">Method:</strong> {{ recipe.method}}</p>
             <p><strong class="purple-text">Category:</strong> {{ recipe.category_name }}</p>
-            <p><strong class="purple-text">Shared by:</strong> {{ recipe.shared_by }}</p>
+            <p><em><strong class="purple-text">Shared by:</strong> {{ recipe.shared_by }}</em></p>
         </div>
     {% endfor %}
 

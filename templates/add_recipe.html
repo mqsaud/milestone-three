@@ -32,13 +32,13 @@
         <!-- Category -->
         <div class="row">
           <div class="input-field col s12">
-            <input 
-            id="category_name" 
-            name="category_name" 
-            type="text"   
-            class="validate" 
-            required>
-            <label for="category_name">Category</label>
+            <select id="category_name" name="category_name" class="validate" required>
+              <option value="" disabled selected>Choose Category</option>
+              {% for category in categories %}
+                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+              {% endfor %}
+            </select>
+            <label>Recipe Category</label>
           </div>
         </div>
         <!-- Image url -->
@@ -97,9 +97,9 @@
               </div>
           </div>
       </div>
-        <!-- Register Button -->
+        <!-- Add Recipe Button -->
         <div class="row ">
-          <button class="col s12 btn-large amber deep-purple-text text-darken-4 shadow-txt-3">
+          <button class="col s12 btn-large waves-effect waves-light amber deep-purple-text text-darken-4 shadow-txt-3">
             <strong>Add Recipe &nbsp</strong><i class="fas fa-sign-in-alt icon"></i>
           </button>
         </div>
