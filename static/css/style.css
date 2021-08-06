@@ -9,6 +9,10 @@ body{
 .shadow-txt-3{
     text-shadow:3px 3px 3px rgba(0, 0, 0, 0.5 );
 }
+.shadow-txt-1{
+    text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5 );
+}
+
 
 .nav-wrapper em{
     padding-left: 20px;
@@ -37,6 +41,11 @@ body{
 .icon {
     vertical-align: middle;
   }
+
+.btn-pad{
+      margin: 10px 20px;
+  }
+
 
 .footer{
     position: fixed;
