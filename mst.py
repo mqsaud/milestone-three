@@ -49,8 +49,33 @@ def add_recipe():
         }
         mongo.db.recipes.insert_one(add_recipe)
         flash("Your Recipe Succeccfully Added")
+        return redirect(url_for("get_recipes"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_recipe.html", categories=categories)
+
+
+@mst.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    if request.method == "POST":
+        veg_no_veg = "on" if request.form.get("veg_no_veg") else "off"
+        submit_update_recipe = {
+            "recipe_name": request.form.get("recipe_name").lower(),
+            "category_name": request.form.get("category_name").lower(),
+            "img_url": request.form.get("img_url"),
+            "ingredients": request.form.get("ingredients").lower(),
+            "method": request.form.get("method").lower(),
+            "shared_by": session["user"],
+            "veg_no_veg": veg_no_veg
+        }
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)},submit_update_recipe)
+        flash("Your Recipe Succeccfully Updated")
+
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template(
+        "edit_recipe.html", recipe=recipe, categories=categories)
 
 
 # Registeration Page
