@@ -19,7 +19,9 @@
         <div class="input-field col s12">
           <input id="recipe_name" name="recipe_name" type="text" minlength="3" maxlength="15"
             value="{{ recipe.recipe_name }}" class="validate" class="validate" required>
-          <label for="recipe_name">Recipe Name</label>
+            <label for="recipe_name">
+              Recipe Name
+            </label>
         </div>
       </div>
       <!-- Category -->
@@ -86,10 +88,11 @@
       <div class="row ">
 
         <div class="col amber s12 center-align ">
-          <button class=" waves-effect waves-light btn btn-pad red shadow-txt-1"><a href="{{ url_for('get_recipes') }}">Cancel</a></button>
+          <button class=" waves-effect waves-light btn btn-pad red  shadow-txt-1"><a class="white-text"
+              href="{{ url_for('get_recipes') }}">Cancel</a></button>
 
-          <button class=" waves-effect waves-light btn-small btn-pad green shadow-txt-1"><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"></a>Edit</button>
-
+          <button class=" waves-effect waves-light btn-small btn-pad green shadow-txt-1"><a class="white-text"
+              href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"></a>Edit</button>
         </div>
       </div>
     </div>

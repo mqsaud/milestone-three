@@ -33,6 +33,13 @@ def get_recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
+# Get Categories
+@mst.route("/get_categories")
+def get_categories():
+    categories = list(mongo.db.categories.find().sort("category_name", 1))
+    return render_template("categories.html", categories=categories)
+
+
 # Add Recipec
 @mst.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():

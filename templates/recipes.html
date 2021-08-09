@@ -54,9 +54,10 @@
             <p><strong class="purple-text">Category:</strong> {{ recipe.category_name }}</p>
             <p><em><strong class="purple-text">Shared by:</strong> {{ recipe.shared_by }}</em></p>
             <div class="col amber s12 center-align ">
+                {% if session.user|lower == recipe.shared_by|lower %}
                 <button class="waves-effect waves-light btn btn-pad red shadow-txt-1"><a href="" class="white-text ">Delete &nbsp<i class="fas fa-trash-alt"></i></a></button>
                 <button class="waves-effect waves-light btn btn-pad green shadow-txt-1"><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="white-text " >Edit &nbsp<i class="fas fa-edit"></i></a></button>
-               
+                {% endif %}
             </div>
         </div>
         
