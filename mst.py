@@ -69,6 +69,14 @@ def edit_category(category_id):
     return render_template("edit_category.html", category=category)
 
 
+# Delete Category
+@mst.route("/delete_category/<category_id>")
+def delete_category(category_id):
+    mongo.db.categories.remove({"_id": ObjectId(category_id)})
+    flash("Category Successfully Deleted")
+    return redirect(url_for("get_categories"))
+
+
 # Add Recipec
 @mst.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
