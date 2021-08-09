@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row ">
+    <div class="col s12 m10 offset-m1">
+      <div class="card-panel teal accent-3">
+        <h3 class="amber deep-purple-text text-darken-4 shadow-txt-3 center-align">
+          Add Category
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('add_category') }}">
+      <div class="card-panel teal accent-3">
+        <!-- Category Name -->
+        <div class="row">
+          <div class="input-field col s12">
+            <input 
+            id="category_name" 
+            name="category_name" 
+            type="text" 
+            minlength="3" 
+            maxlength="25" 
+            class="validate"
+            class="validate" 
+            required>
+            <label for="category_name">Category Name</label>
+          </div>
+        </div>
+        <!-- Add Recipe Button -->
+        <div class="row ">
+          <button class="col s12 btn-large waves-effect waves-light amber deep-purple-text text-darken-4 shadow-txt-3">
+            <strong>Add Category &nbsp</strong><i class="fas fa-plus-square"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}
