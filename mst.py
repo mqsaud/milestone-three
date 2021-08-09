@@ -54,6 +54,21 @@ def add_category():
     return render_template("add_category.html")
 
 
+# Edit Category
+@mst.route("/edit_category/<category_id>", methods=["GET", "POST"])
+def edit_category(category_id):
+    if request.method == "POST":
+        update_category = {
+            "category_name": request.form.get("category_name")
+        }
+        mongo.db.categories.update(
+            {"_id": ObjectId(category_id)}, update_category)
+        flash("Category Successfully Updated")
+        return redirect(url_for("get_categories"))
+    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    return render_template("edit_category.html", category=category)
+
+
 # Add Recipec
 @mst.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
@@ -89,7 +104,8 @@ def edit_recipe(recipe_id):
             "shared_by": session["user"],
             "veg_no_veg": veg_no_veg
         }
-        mongo.db.recipes.update({"_id": ObjectId(recipe_id)},submit_update_recipe)
+        mongo.db.recipes.update(
+            {"_id": ObjectId(recipe_id)}, submit_update_recipe)
         flash("Your Recipe Succeccfully Updated")
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})

@@ -17,7 +17,7 @@
                     <span class="card-title amber btn-pad deep-purple-text text-darken-1 shadow-txt-3">{{ category.category_name }}</span>
                 </div>
                 <div class="card-action">
-                    <a href="#" class="btn btn-pad green">Edit</a>
+                    <a href="{{ url_for('edit_category', category_id=category._id) }}" class="btn btn-pad green">Edit</a>
                     <a href="#" class="btn btn-pad red">Delete</a>
                 </div>
             </div>
