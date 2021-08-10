@@ -89,7 +89,7 @@
 
         <div class="col amber s12 center-align ">
           <button class=" waves-effect waves-light btn btn-pad red  shadow-txt-1"><a class="white-text"
-              href="{{ url_for('get_recipes') }}">Cancel</a></button>
+              href="{{ url_for('profile', username=session['user']) }}">Cancel</a></button>
 
           <button class=" waves-effect waves-light btn-small btn-pad green shadow-txt-1"><a class="white-text"
               href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"></a>Edit</button>

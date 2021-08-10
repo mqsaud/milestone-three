@@ -2,6 +2,7 @@
   $(document).ready(function(){
     $('.sidenav').sidenav({edge: "right"});
     $('select').formSelect();
+    $('.modal').modal();
 
     // The crdit of the functio "validateMaterializeSelect()" to the Code Instiute Tutoring lesson.
     validateMaterializeSelect();

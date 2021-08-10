@@ -40,6 +40,15 @@ def get_categories():
     return render_template("categories.html", categories=categories)
 
 
+# One recipe
+@mst.route("/recipe/<recipe_id>")
+def recipe_display(recipe_id):
+    recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
+    mongo.db.recipes.update_one(
+        {'_id': ObjectId(recipe_id)}, {'$inc': {'views': int(1)}})
+    return render_template("/recipe-display.html", recipe=recipe_db)
+
+
 # Add Category
 @mst.route("/add_category", methods=["GET", "POST"])
 def add_category():
@@ -123,6 +132,14 @@ def edit_recipe(recipe_id):
         "edit_recipe.html", recipe=recipe, categories=categories)
 
 
+# Delete Recipe
+@mst.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
+    flash("Recipe has been Successfully Deleted")
+    return redirect(url_for("profile", username=session['user']))        
+
+
 # Registeration Page
 @mst.route("/register", methods=["GET", "POST"])
 def register():
@@ -182,14 +199,16 @@ def login():
 
 @mst.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # grab the session user's name from database
     username = mongo.db.users.find_one(
-              {"username": session["user"]})["username"]
-
-    if session["user"]:
-        return render_template("profile.html", username=username)
-
-    return redirect(url_for("login"))
+        {"username": session["user"]})["username"]
+    user = session.get("user").lower()
+    user_recipes = list(
+        mongo.db.recipes.find({"shared_by": session["user"]}))
+    if user is not None:
+        return render_template(
+            "profile.html", username=username, recipes=user_recipes,)
+    else:
+        return render_template("/login.html")
 
 
 @mst.route("/logout")

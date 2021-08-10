@@ -6,26 +6,50 @@
 <div class="row">
   <div class="col s12 m10 offset-m1">
     <div class="card-panel teal accent-3">
-      <h3 class="amber deep-purple-text text-darken-4 shadow-txt-3 center-align">
+      <h3 class="amber deep-purple-text text-darken-4 shadow-txt-3 center-align capital">
         {{username}}'s Profile
       </h3>
     </div>
   </div>
 </div>
 
-
-
-{% for recipe in recipes %}
-  {{ recipe.category }}<br>
-  {{ recipe.recipe_name }}<br>
-  {{ recipe.ingredients }}<br>
-  {{ recipe.method}}<br>
-  {{ recipe.shared_by }}
-{% endfor %}
-
+<div class="row">
+  {% for recipe in recipes %}
+  <div class="col s12 m6 l4">
+    <a href="{{ url_for('recipe_display', recipe_id=recipe._id) }}">
+      <div class="container">
+        <div class="card">
+          <div class="card-image">
+            <img class="responsive-image" src="{{ recipe.img_url }}" alt="recipe image">
+          </div>
+          <div class="card-content">
+            <h4>{{ recipe.recipe_name }}</h4>
+            <p>Cooking time: {{ recipe.cooks_in}} Minutes</p>
+          </div>
+          <div class="card-action  center-align">
+            <a class=" btn waves-effect btn modal-trigger red" href="#modal-{{loop.index}}">
+              <i class="fas fa-trash-alt right">&nbsp delete</i></a>
+            <div id="modal-{{loop.index}}" class="modal">
+              <div class="modal-content">
+                <h4 class="capital">Delete for all eternity?</h4> <br>
+                <p><em class="warraning">Warraning! </em> If you press " YES ", The recipe will be permanently deleted, and we will not be able to recover it. <br>
+                  Are you sure you want to <em class="warraning">permanently delete</em> this recipe?</p>
+              </div>
+              <div class="modal-footer center-align">
+                <a href="#" class="modal-close waves-effect btn-flat brown accent-1 ">Cancel</a>
+                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
+                  class="modal-close waves-effect btn-flat brown accent-1">YES</a>
+              </div>
+            </div>
+            <div class="btn-pad center-align">
+              <a href="{{ url_for ('edit_recipe', recipe_id= recipe._id) }}" class="btn waves-effect  blue lighten-1">
+                <i class="fas fa-edit">&nbsp edit</i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
 {% endblock%}
-
-
-
-  
-

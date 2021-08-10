@@ -2,70 +2,65 @@
 
 
 {% block content %}
-<div class="container center-align">
+<div class="container ">
 
-    <div class="row">
-        <h2 class="align-center">Tasty Recipes!</h2>
+    <div class="row amber deep-purple-text text-darken-4 center-align">
+        <div>
+            <h4 class=" shadow-txt-1 align-center">Enjoy Our Delicious Recipes!</h4>
+        </div>
     </div>
 
-        <div class="row">
-        <form action="{{ url_for('search')}}" method="post">
-            <div class="wrap">
-                <div class="row">
-                    <div class="col s12 m12">
-                        <input 
-                        type="text" 
-                        name="query" 
-                        id="query" 
-                        minlength="3" 
-                        placeholder=" Search recipes here!" 
-                        class="validate" 
-                        required>
-                        <label for="query"></label>
-                    </div>
-                    <div class="col s12 m12">
-                            <button 
-                            type="submit" 
-                            class=" brown lighten-3 btn-small text-shadow">
-                            search</button>
-                            <a href="{{ url_for('get_recipes') }}" class="black btn-small brown lighten-3 text-shadow">Reset</a>
+    <div class="row">
+        <div class="card-panel teal accent-3">
+            <form action="{{ url_for('search')}}" method="post">
+                <div class="">
+                    <div class="row">
+                        <div class="col light-blue lighten-4 card s12 m12 white-text">
+                            <input type="text" name="query" id="query" minlength="3"
+                                class="validate " required>
+                            <label for="query">Search recipes here!</label>
+                        </div>
+                        <div class="card-panel col s12 m12 center-align light-blue lighten-4">
+                            <button type="submit" class=" blue darken-1  btn-small btn-pad text-shadow">
+                                search <i class="fas fa-search right"></i></button>
+                            <a href="{{ url_for('get_recipes') }}"
+                                class=" btn-small blue darken-1  text-shadow icon">Reset <i class="fas fa-undo right "></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
-    </div> 
+            </form>
+        </div>
+    </div>
 </div>
 
 <div class="row">
     {% for recipe in recipes %}
-        <div class="col s12 m12 l6 xl5 offset-xl1 ">
-            <h5 class="center-align purple-text">{{ recipe.recipe_name }}</h5>
-            {% if recipe.veg_no_veg == "on" %}
-                <h6 class="center-align green-text"> Vegetarian!</h6>
-            {% else %}
-                <h6 class="center-align red-text"> Non Vegetarian!</h6>
-            {% endif %}
-                <div class="img-border ">
-                  <img class="responsive-image " src="{{ recipe.img_url }}"
-                    alt="image of {{ recipe.recipe_name }}" />
-                </div>
-            <p><strong class="purple-text">Ingredients:</strong> {{ recipe.ingredients }}</p>
-            <p><strong class="purple-text">Method:</strong> {{ recipe.method}}</p>
-            <p><strong class="purple-text">Category:</strong> {{ recipe.category_name }}</p>
-            <p><em><strong class="purple-text">Shared by:</strong> {{ recipe.shared_by }}</em></p>
-            <div class="col amber s12 center-align ">
-                {% if session.user|lower == recipe.shared_by|lower %}
-                <button class="waves-effect waves-light btn btn-pad red shadow-txt-1"><a href="" class="white-text ">Delete &nbsp<i class="fas fa-trash-alt"></i></a></button>
-                <button class="waves-effect waves-light btn btn-pad green shadow-txt-1"><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="white-text " >Edit &nbsp<i class="fas fa-edit"></i></a></button>
-                {% endif %}
-            </div>
+    <div class="col s12 m12 l6 xl5 offset-xl1 ">
+        <h5 class="center-align purple-text">{{ recipe.recipe_name }}</h5>
+        {% if recipe.veg_no_veg == "on" %}
+        <h6 class="center-align green-text"> Vegetarian!</h6>
+        {% else %}
+        <h6 class="center-align red-text"> Non Vegetarian!</h6>
+        {% endif %}
+        <div class="img-border ">
+            <img class="responsive-image " src="{{ recipe.img_url }}" alt="image of {{ recipe.recipe_name }}" />
         </div>
-        
+        <p><strong class="purple-text">Ingredients:</strong> {{ recipe.ingredients }}</p>
+        <p><strong class="purple-text">Method:</strong> {{ recipe.method}}</p>
+        <p><strong class="purple-text">Category:</strong> {{ recipe.category_name }}</p>
+        <p><em><strong class="purple-text">Shared by:</strong> {{ recipe.shared_by }}</em></p>
+        <div class="col amber s12 center-align ">
+            <button class="waves-effect waves-light btn btn-pad blue shadow-txt-1"><a
+                    href="{{ url_for('recipe_display', recipe_id=recipe._id) }}" class="white-text ">Learn More &nbsp<i
+                        class="fas fa-angle-double-right"></i></a></button>
+        </div>
+    </div>
+
     {% endfor %}
 
 
 </div>
 
 
-    
+
 {% endblock %}
