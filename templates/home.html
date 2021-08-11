@@ -3,8 +3,13 @@
 {% block hero %}
 <section>
     <div>
-        <img class="hero" src="{{ url_for('static', filename='images/root_vegetable_soup.jpg')}}" alt="">
+        <!-- <img class="hero" src="{{ url_for('static', filename='images/root_vegetable_soup.jpg')}}" alt=""> -->
     </div>
+    <picture>
+        <source media="(min-width:1450px)" srcset="{{ url_for('static', filename='images/root_vegetable_soup.jpg')}}">
+        <source media="(min-width:768px)" srcset="{{ url_for('static', filename='images/lettuce_soup.jpg')}}">
+        <img src="{{ url_for('static', filename='images/chicken_and_sweetcorn_soup.jpg')}}" alt="spices" style="width:100%;">
+    </picture>
 </section>
 {% endblock %}
 {% block content %}
