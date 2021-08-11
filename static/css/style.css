@@ -65,6 +65,9 @@ body{
 .pad-zero{
     padding: 0;
 }
+.margin-zero{
+    margin: 0;
+}
 
 .footer{
     position: fixed;

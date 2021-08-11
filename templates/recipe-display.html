@@ -11,17 +11,17 @@
     </section>
 
     <a class=" pad-pad " href="{{ url_for('get_recipes') }}">
-        <i class="fas fa-arrow-circle-left btn-pad"> Back to recipes </i>
+        <i class="fas fa-arrow-circle-left btn-pad black-text"> Back to recipes </i>
     </a>
 
- <!-- Rectipe Details -->
+    <!-- Rectipe Details -->
     <div class="row">
         <div class=" col s12 ">
-            <h5 class=" pad-pad ">Enjoy this delicious {{ recipe.category_name}}</h5>
-            {% if recipe.is_vegetarian == "on" %}
-            <h5 class="  white-text pad-pad shadow-txt-1">Vegetarian!</h5>
+            <h5 class="pad-pad capital">Enjoy this delicious {{ recipe.category_name}}</h5>
+            {% if recipe.veg_no_veg == "on" %}
+            <h5 class="pad-pad">Vegetarian!</h5>
             {% else %}
-            <h5 class="  red-text pad-pad shadow-txt-1" >Non Vegetarian!</h5>
+            <h5 class="pad-pad">Non Vegetarian!</h5>
             {% endif %}
         </div>
     </div>
@@ -52,22 +52,12 @@
         </div>
     </div>
     <div class="row container">
-        <div class="card-panel" >
+        <div class="card-panel">
             <h5 class="capital">Shared by: {{ recipe.shared_by }}</h5>
             <!-- The share buttons were added with sharethis.com -->
             <div class="sharethis-inline-share-buttons"></div>
         </div>
     </div>
 </div>
-<!-- <div class="row">
-    <div class="col amber s12 center-align ">
-        {% if session.user|lower == recipe.shared_by|lower %}
-        <button class="waves-effect waves-light btn btn-pad red shadow-txt-1"><a href="" class="white-text ">delet
-                &nbsp<i class="fas fa-angle-double-right"></i></a></button>
-        <button class="waves-effect waves-light btn btn-pad green shadow-txt-1"><a
-                href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="white-text ">Edit &nbsp<i
-                    class="fas fa-edit"></i></a></button>
-        {% endif %}
-    </div> -->
-</div>
+
 {% endblock %}

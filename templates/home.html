@@ -3,25 +3,35 @@
 {% block hero %}
 <section>
     <div>
-        <img class="hero" src="{{ url_for('static', filename='images/soup-yellow-bowl.jpg')}}" alt="">
+        <img class="hero" src="{{ url_for('static', filename='images/root_vegetable_soup.jpg')}}" alt="">
     </div>
 </section>
 {% endblock %}
 {% block content %}
 
-<div class=" row shadow-txt teal accent-3">
-    <div class="col s12 m10 offset-m1">
-        <h1 class="deep-purple-text text-darken-4 center-align ">Welcom</h1>
+<div class=" row margin-zero teal accent-3">
+    <div class="col s12 m4 offset-m1">
+        <h1 class=" center-align ">Welcom</h1>
         <p class="center-align">
             This is the right place to enjoy the hot delecious soups and other drinks.
-            We have a verity of hot soups and cold drinks. If you want to prepare a soup or cold drink, please visit our Recipes setion.
+            We have a verity of hot soups and cold drinks. If you want to prepare a soup or cold drink, please visit our
+            Recipes setion.
         </p>
+    </div>
+    <div class="col s12 m4 offset-m1">
         <h6 class="center-align amber ">
             <button class="amber btn">
-            <a class="deep-purple-text text-darken-4" href="{{ url_for('get_recipes') }}">Recipes</a>
-        </button>
+                <a class="deep-purple-text text-darken-4" href="{{ url_for('get_recipes') }}">Recipes</a>
+            </button>
         </h6>
     </div>
+</div>
+<div class="col s12 m10 offset-m1">
+    <h6 class="center-align amber ">
+        <button class="amber btn">
+            <a class="deep-purple-text text-darken-4" href="{{ url_for('get_recipes') }}">Recipes</a>
+        </button>
+    </h6>
 </div>
 
 {% include 'footer.html' %}

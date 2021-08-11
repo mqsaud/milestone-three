@@ -4,7 +4,7 @@
 <div class="row ">
   <div class="col s12 m10 offset-m1">
     <div class="card-panel teal accent-3">
-      <h3 class="amber deep-purple-text text-darken-4 shadow-txt-3 center-align">
+      <h3 class=" center-align">
         Edit Recipe
       </h3>
     </div>
@@ -68,10 +68,10 @@
         </div>
       </div>
       <!-- Vegetarian  -->
-      <div class="row center-align card ">
+      <div class="row teal accent-3 ">
         <div class="input-field col s11">
           <div class="switch ">
-            <label for="veg_no_veg" class="deep-purple-text text-darken-4 shadow-txt-3">
+            <label for="veg_no_veg" class="black-text">
               <strong>Non Vegetrain</strong>
               {% if recipe.veg_no_veg == "on" %}
               <input type="checkbox" id="veg_no_veg" name="veg_no_veg" checked>
@@ -86,8 +86,7 @@
       </div>
       <!-- Add Recipe Button -->
       <div class="row ">
-
-        <div class="col amber s12 center-align ">
+        <div class="col teal accent-3 s12 center-align ">
           <button class=" waves-effect waves-light btn btn-pad red  shadow-txt-1"><a class="white-text"
               href="{{ url_for('profile', username=session['user']) }}">Cancel</a></button>
 

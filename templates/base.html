@@ -18,9 +18,9 @@
 
     <header>
         <!-- Main navbar -->
-        <nav class="nav-extended shadow-txt teal accent-3">
+        <nav class="nav-extended shadow-txt-1 teal accent-3">
             <div class="nav-wrapper">
-                <a href="{{ url_for('home') }}" class="brand-logo"><em>Soup & Soft</em></a>
+                <a href="{{ url_for('home') }}" class="brand-logo"><em>Soup&nbsp&&nbspSoft</em></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
@@ -43,18 +43,18 @@
         <!-- Mobile navbar -->
         <ul class="sidenav teal accent-1 " id="mobile-demo">
             <li>
-                <h4 class="center-align shadow-txt-3 amber deep-purple-text text-darken-4">Menu</h4>
+                <h4 class="center-align">Menu</h4>
             </li>
-            <li><a class="deep-orange-text darken-4-text" href="{{ url_for('home') }}">Home</a></li>
-            <li><a class="deep-orange-text darken-4-text" href="{{ url_for('get_recipes') }}">Recipes</a></li>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a class="" href="{{ url_for('get_recipes') }}">Recipes</a></li>
             {% if session.user %}
-                <li><a class="deep-orange-text darken-4-text" href="{{ url_for('add_recipe') }}">Add Recepie</a></li>
-                <li><a class="deep-orange-text darken-4-text" href="{{ url_for('profile', username=session['user']) }}">User's Profile</a></li>
-                <li><a class="deep-orange-text darken-4-text" href="{{url_for('get_categories')}}">Manage Categories</a></li>
-                <li><a class="deep-orange-text darken-4-text" href="{{ url_for('logout') }}">Log Out</a></li>
+                <li><a class="" href="{{ url_for('add_recipe') }}">Add Recepie</a></li>
+                <li><a class="" href="{{ url_for('profile', username=session['user']) }}">User's Profile</a></li>
+                <li><a class="" href="{{url_for('get_categories')}}">Manage Categories</a></li>
+                <li><a class="" href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
-                <li><a class="deep-orange-text darken-4-text" href="{{ url_for('login') }}">Log In</a></li>
-                <li><a class="deep-orange-text darken-4-text" href="{{ url_for('register') }}">Register</a></li>
+                <li><a class="" href="{{ url_for('login') }}">Log In</a></li>
+                <li><a class="" href="{{ url_for('register') }}">Register</a></li>
             {% endif %}
         </ul>
 
@@ -67,7 +67,7 @@
         {% for message in messages %}
         <div class="row flashe-msg">
             <div class="col s12 m10 offset-m1 shadow-txt">
-                <h6 class="amber center-align deep-purple-text text-darken-4">{{ message}}</h6>
+                <h6 class="center-align">{{ message}}</h6>
             </div>
         </div>
         {% endfor %}
@@ -80,7 +80,7 @@
         {% endblock %}
     </section>
 
-    <main class="container">
+    <main>
         {% block content %}
 
         {% endblock %}

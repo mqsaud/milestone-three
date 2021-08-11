@@ -4,7 +4,7 @@
 <div class="row ">
   <div class="col s12 m10 offset-m1">
     <div class="card-panel teal accent-3">
-      <h3 class="amber deep-purple-text text-darken-4 shadow-txt-1 center-align">
+      <h3 class="shadow-txt-1 center-align capital">
         Edit Category
       </h3>
     </div>
@@ -18,15 +18,15 @@
       <div class="row">
         <div class="input-field col s12">
           <input id="category_name" name="category_name" type="text" value="{{ category.category_name }}" minlength="3"
-            maxlength="25" class="validate" class="validate" required>
+            maxlength="25" class="validate capital" required>
           <label for="category_name">Category Name</label>
         </div>
       </div>
       <!-- Add Recipe Button -->
       <div class="row ">
         <div class="col s12 center-align">
-          <a href="{{ url_for('get_categories') }}" class="btn-large red deep-purple-text text-darken-4 shadow-txt-1">cancel <i class="fa fa-window-close right"></i></a>
-          <button class="  btn-large waves-effect waves-light green deep-purple-text text-darken-4 shadow-txt-1">
+          <a href="{{ url_for('get_categories') }}" class="btn-large teal accent-3 black-text ">cancel <i class="fa fa-window-close right"></i></a>
+          <button class="  btn-large waves-effect waves-light teal accent-3 black-text">
             <strong>Edit Category &nbsp</strong><i class="fas fa-edit"></i>
           </button>
         </div>
