@@ -6,7 +6,7 @@
 <div class="row">
   <div class="col s12 m10 offset-m1">
     <div class="card-panel teal accent-3">
-      <h3 class="amber deep-purple-text text-darken-4 shadow-txt-3 center-align capital">
+      <h3 class=" center-align capital">
         {{username}}'s Profile
       </h3>
     </div>
@@ -15,20 +15,21 @@
 
 <div class="row">
   {% for recipe in recipes %}
-  <div class="col s12 m6 l4">
+  <div class="col s12 l6 ">
     <a href="{{ url_for('recipe_display', recipe_id=recipe._id) }}">
-      <div class="container">
+      <div class="">
         <div class="card">
           <div class="card-image">
-            <img class="responsive-image" src="{{ recipe.img_url }}" alt="recipe image">
+            <img class="responsive-image" src="{{ recipe.img_url }}"  alt="Image not found" 
+            onerror="this.onerror=null;this.src='https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/potatosoup_11631_16x9.jpg';">
           </div>
           <div class="card-content">
-            <h4>{{ recipe.recipe_name }}</h4>
+            <h4 class="capital">{{ recipe.recipe_name }}</h4>
             <p>Cooking time: {{ recipe.cooks_in}} Minutes</p>
           </div>
-          <div class="card-action  center-align">
-            <a class=" btn waves-effect btn modal-trigger red" href="#modal-{{loop.index}}">
-              <i class="fas fa-trash-alt right">&nbsp delete</i></a>
+          <div class="card-action center-align  ">
+            <a class=" btn waves-effect modal-trigger" href="#modal-{{loop.index}}">
+              <i class="pad-zero fas fa-trash-alt ">&nbsp delete</i></a>
             <div id="modal-{{loop.index}}" class="modal">
               <div class="modal-content">
                 <h4 class="capital">Delete for all eternity?</h4> <br>
@@ -41,8 +42,8 @@
                   class="modal-close waves-effect btn-flat brown accent-1">YES</a>
               </div>
             </div>
-            <div class="btn-pad center-align">
-              <a href="{{ url_for ('edit_recipe', recipe_id= recipe._id) }}" class="btn waves-effect  blue lighten-1">
+            <div class="btn-pad ">
+              <a href="{{ url_for ('edit_recipe', recipe_id= recipe._id) }}" class="btn waves-effect center-align">
                 <i class="fas fa-edit">&nbsp edit</i></a>
             </div>
           </div>

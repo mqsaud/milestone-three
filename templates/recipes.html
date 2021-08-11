@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container ">
 
-    <div class="row amber deep-purple-text text-darken-4 center-align">
+    <div class="row  center-align">
         <div>
             <h4 class=" shadow-txt-1 align-center">Enjoy Our Delicious Recipes!</h4>
         </div>
@@ -15,16 +15,16 @@
             <form action="{{ url_for('search')}}" method="post">
                 <div class="">
                     <div class="row">
-                        <div class="col light-blue lighten-4 card s12 m12 white-text">
-                            <input type="text" name="query" id="query" minlength="3"
-                                class="validate " required>
+                        <div class="col teal accent-3  s12 m12 white-text">
+                            <input type="text" name="query" id="query" minlength="3" class="validate " required>
                             <label for="query">Search recipes here!</label>
                         </div>
-                        <div class="card-panel col s12 m12 center-align light-blue lighten-4">
+                        <div class=" col s12 m12 center-align teal accent-3">
                             <button type="submit" class=" blue darken-1  btn-small btn-pad text-shadow">
                                 search <i class="fas fa-search right"></i></button>
                             <a href="{{ url_for('get_recipes') }}"
-                                class=" btn-small blue darken-1  text-shadow icon">Reset <i class="fas fa-undo right "></i></a>
+                                class=" btn-small blue darken-1 btn-pad text-shadow icon">Reset <i
+                                    class="fas fa-undo right "></i></a>
                         </div>
                     </div>
                 </div>
@@ -33,28 +33,31 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row ">
     {% for recipe in recipes %}
-    <div class="col s12 m12 l6 xl5 offset-xl1 ">
-        <h5 class="center-align purple-text">{{ recipe.recipe_name }}</h5>
-        {% if recipe.veg_no_veg == "on" %}
-        <h6 class="center-align green-text"> Vegetarian!</h6>
-        {% else %}
-        <h6 class="center-align red-text"> Non Vegetarian!</h6>
-        {% endif %}
-        <div class="img-border ">
-            <img class="responsive-image " src="{{ recipe.img_url }}" alt="image of {{ recipe.recipe_name }}" />
+
+        <div class="center-align margin-lf">
+            <div class= "card btn-pad card-image col s12 m12 l5" >
+            <h5 class="center-align ">{{ recipe.recipe_name }}</h5>
+            {% if recipe.veg_no_veg == "on" %}
+            <h6 class="center-align green-text"> Vegetarian!</h6>
+            {% else %}
+            <h6 class="center-align red-text"> Non Vegetarian!</h6>
+            {% endif %}
+            <div class="">
+                <!-- Image Credit: https://www.bbc.co.uk/food/chefs/darina_allen -->
+                <img class="responsive-image" src="{{ recipe.img_url }}" alt="Image not found"
+                    onerror="this.onerror=null;this.src='https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/potatosoup_11631_16x9.jpg';" />
+            </div>
+            <p><strong class="">Category:</strong> {{ recipe.category_name }}</p>
+            <p><em><strong class="">Shared by:</strong> {{ recipe.shared_by }}</em></p>
+            <div class="col  s12 center-align ">
+                <button class="waves-effect waves-light btn btn-pad blue shadow-txt-1"><a
+                        href="{{ url_for('recipe_display', recipe_id=recipe._id) }}" class="white-text ">Learn More
+                        &nbsp<i class="fas fa-angle-double-right"></i></a></button>
+            </div>
+            </div>
         </div>
-        <p><strong class="purple-text">Ingredients:</strong> {{ recipe.ingredients }}</p>
-        <p><strong class="purple-text">Method:</strong> {{ recipe.method}}</p>
-        <p><strong class="purple-text">Category:</strong> {{ recipe.category_name }}</p>
-        <p><em><strong class="purple-text">Shared by:</strong> {{ recipe.shared_by }}</em></p>
-        <div class="col amber s12 center-align ">
-            <button class="waves-effect waves-light btn btn-pad blue shadow-txt-1"><a
-                    href="{{ url_for('recipe_display', recipe_id=recipe._id) }}" class="white-text ">Learn More &nbsp<i
-                        class="fas fa-angle-double-right"></i></a></button>
-        </div>
-    </div>
 
     {% endfor %}
 

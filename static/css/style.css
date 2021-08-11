@@ -39,6 +39,10 @@ body{
         height: 300px;
         object-fit: cover;
     }
+
+.border{
+    border:2px double darkblue;
+}    
     
 
 .flashe-msg h6{
@@ -55,11 +59,28 @@ body{
 
 .pad-pad{
     padding: 15px;
-}  
+}
+
+
+.pad-zero{
+    padding: 0;
+}
 
 .footer{
     position: fixed;
     bottom: 0;
 }  
 
+@media only screen and (min-width : 992px){
 
+    .margin-lf{
+        margin-left: 10%;
+    } 
+}
+
+@media only screen and (min-width : 1600px){
+
+    .margin-lf{
+        margin-left: 12%;
+    } 
+}
