@@ -1,104 +1,186 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Milestone Three Project - Soup & Soft
+Soup & Soft is a soup and drink shop sells a variety of soup and drinks. The target audience of this website is soup lovers who want to prepare soup and beverages themselves. Everyone is welcome.
 
-Welcome mqsaud,
+Recipes are visible to all visitors. Only registered users can upload recipes and can edit their own recipes.
+Registration is open to all visitors.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. The last update to this file was: **July 2, 2021**
+To visit the website please click [Here](https://milestone-three-pro.herokuapp.com/)
 
-## Gitpod Reminders
+![Responsive-Site](static/images/site-responsive.jpg)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Contents
 
-`python3 -m http.server`
+- [**User Experience (UX)**](<#user-experience-(ux)>)
 
-A blue button should appear to click: _Make Public_,
+  - [Project Goals](#project-goals)
+  - [User Goals](#user-goals)
+  - [Design](#design)
+  - [Wireframes](#wireframes)
 
-Another blue button should appear to click: _Open Browser_.
+- [**Features**](#features)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+  - [Existing Features](#features)
 
-A blue button should appear to click: _Make Public_,
+- [**Technologies**](#technologies-used)
 
-Another blue button should appear to click: _Open Browser_.
+  - [Languages Used](#technologies-used)
+  - [Frameworks, Libraries and Programs Used](#technologies-used)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- [**Testing**](#testing)
 
-To log into the Heroku toolbelt CLI:
+- [**Deployment**](#deployment)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- [**Credits**](#credits)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## User Experience (UX)
 
-------
+### Project Goals
+- Create a website to inspire users to share their favourite recipes.
+- Create and implement navigation throughout the site to help users to register,     login and manage their posts/recipes.
+- Implement  CRUD (create, read, update and delete) functionalities for users recipes.
+- Implement following technologies:  
+CSS, Flask, HTML, JavaScript, MongoDB and Python
 
-## Release History
+## User Stories
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### User Goals:
+#### New User Goals:  
+As a new user, I want to achieve the following goals.  
+a- I want to be able to view all shared recipes.    
+b- I want to be able to register on the website.  
+c- I want to be able to share/upload my recipes.  
+d- I want to be able to edit/delete my recipes.  
+### Returning User Goals:  
+a- As a returning user, I want to be able to edit/update my recipes posted on the website.  
+b- As a returning user, I want to be able to delete my recipes posted on the website.  
+### Site Owner User Goals:  
+a- As the site owner, I want to share the recipes uploaded on this website.  
+b- As the site owner, I want to attract the audience with the nice and attractive design of the website.  
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Design  
+* The design of this project is simple.  
+Materializecss.com framework was used to build this project website.  
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### Colors  
+* I used followig colours including text colors.  
+![color used to build websitr](static/images/color-used.jpg)  
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Typography  
+- I used the operating system default font to enhance the compatibility.  
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Wireframe  
+- To view the project wireframe please click [Here](https://github.com/mqsaud/milestone-three/blob/main/Soup%26Soft%20Cafe.pdf)  
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## Features
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Existing Features : 
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- **Navigation**:  
+  Standard Materialize based navigation bar was added with a clear name of the company on the left in desktop view and centred in mobile view.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+- **Footer**:  
+The footer includes the email address and Social link icons.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+- **Home Page**:  
+The landing page contains a separate beautiful hero image for each device type. The navbar offers the user to register or login
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- **Profile**:  
+Once logged in, the user will transfer onto the profile page. Here the user will be able to edit or delete their uploaded recipes. 
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+- **Flash messages**  
+Customized flash messages will appear for successful and non-successful registration, successful login and logout, successful update, successful edit and added recipes.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+- **Add / Edit recipe** :   
+Once the user logged in, users can see the option to Add or Edit the recipe. On the navbar, they will see the option "Add Recipe". Once clicked, they will fill the relevant information in the form, and by clicking " Add Recipe", the recipe will upload to the website and be available for viewing to all visitors. Any registered user can edit or delete only their own uploaded recipe.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- **Delete**:  
+If a user wants to delete a recipe, they will have to login first. There is a  defensive check by using a pop-up modal, asking them to think one more time before deleting the recipe.
 
-------
+- **Logout**:  
+If the user clicks "Logout", they will be redirected to the "Log In" page, as they might need to login again.
 
-## FAQ about the uptime script
+- **Search**:  
+As the site grows, there will be more recipes; therefore, search functionality has been added to search the recipes.
 
-**Why have you added this script?**
+**Database skeleton**
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+- The skeleton of my database is as follows : 
 
-**How will this affect me?**
+<img src="static/images/data-base.jpg" width=100% height=100%>
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+- **categories** : 
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+    category_name
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+- **recipes** : 
 
-**So….?**
+    recipe_name
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+    category_name
 
-**Can I opt out?**
+    img_url
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+    ingredients
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+    method --> Cooking Procedure
 
-**Anything more?**
+    veg_no_veg --> Is the recipe vegetarian or non-vegetarian.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+    added_by
+
+- **users** :
+
+    username
+
+    password
+    
+**Security**
+
+- The website uses [Werkzeug's](https://werkzeug.palletsprojects.com/en/1.0.x/) password protection system.  Werkzeug hashes the password entered by the user, converts the password into another string and then it is salted (additional data added). The hash of the password is stored in the database. This makes the password very tough to crack.
+
+- Database configurations, username, password/"secret key" are stored in a separate file, and gitpod's .gitignore file was used to prevent this file from uploading to GitHub.
+
+#### [Back to Contents](#contents)
 
 ---
 
-Happy coding!
+## Technologies Used
+- Following languages and frameworks were used to build the website
+
+### Languages
+
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619744963/html5_rjkhoe.png) [HTML5](https://en.wikipedia.org/wiki/HTML5)
+>
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619744731/css_mvqiie.png) [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+>
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619744731/js_fveoqo.png) [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/pictures/logos/python_mbbj4o.png) [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+
+### Frameworks, Libraries and Programs:
+
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60,h_50/v1624909475/pictures/logos/Flask_h8fuus.png) [Flask](https://fontawesome.com/)
+
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60,h_60/v1624909475/pictures/logos/MongoDB_lintsi.png) [MongoDB](https://www.mongodb.com/) 
+
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60,h_50/v1624909475/pictures/logos/gitpod_kbbawd.png) [Gitpod](https://www.gitpod.io/) 
+
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60,h_50/v1624909475/pictures/logos/Materialize_uzrnyu.png) [Materialize](https://materializecss.com/about.html) 
+
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619745480/pictures/logos/font_awesome_logo_djde4p.png) [Font Awesome](https://fontawesome.com/) 
+
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619745480/pictures/logos/balsamiq_wireframes_logo_eieeug.png) [Balsamiq](https://balsamiq.com/) 
+
+#### [Back to Contents](#contents)
+
+---
+
+## Testing
+
+### Code validity
+
+**PEP8 Compliant:**
+
+   I have used [PEP8](http://pep8online.com/) to check my mst.py files complied with the PEP8 requirements. The results was no error
+   ![pep8](static/images/pep8.jpg)
+

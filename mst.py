@@ -110,6 +110,7 @@ def add_recipe():
     else:
         return render_template("login.html")
 
+
 @mst.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
