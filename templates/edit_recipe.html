@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row ">
+<div class="row center-align">
   <div class="col s12 m10 offset-m1">
     <div class="card-panel teal accent-3">
       <h3 class=" center-align">
@@ -11,91 +11,97 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row container">
+  <div class="card-panel teal accent-3">
   <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
-    <div class="card-panel teal accent-3">
-      <!-- Recipe Name -->
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="recipe_name" name="recipe_name" type="text" minlength="3" maxlength="15"
-            value="{{ recipe.recipe_name }}" class="validate" class="validate" required>
-            <label for="recipe_name">
-              Recipe Name
-            </label>
-        </div>
+
+    <!-- Recipe Name -->
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="recipe_name" name="recipe_name" type="text" minlength="3" maxlength="15"
+          value="{{ recipe.recipe_name }}" class="validate" required>
+        <label for="recipe_name">
+          Recipe Name
+        </label>
       </div>
-      <!-- Category -->
-      <div class="row">
-        <div class="input-field col s12">
-          <select id="category_name" name="category_name" class="validate" required>
-            <option value="" disabled>Choose Category</option>
-            {% for category in categories %}
-            {% if category.category_name == recipe.category_name %}
-            <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+    </div>
+    <!-- Category -->
+    <div class="row">
+      <div class="input-field col s12">
+        <select id="category_name" name="category_name" class="validate" required>
+          <option value="" disabled>Choose Category</option>
+          {% for category in categories %}
+          {% if category.category_name == recipe.category_name %}
+          <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+          {% else %}
+          <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+          {% endif %}
+          {% endfor %}
+        </select>
+        <label>Recipe Category</label>
+      </div>
+    </div>
+    <!-- Image url -->
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="img_url" name="img_url" type="url" pattern="https://.*" class="validate" value="{{ recipe.img_url }}"
+          required>
+        <label for="img_url">Image url</label>
+        <span class="helper-text">If you don't url of image, keep the default one.</span>
+      </div>
+    </div>
+
+    <!-- Ingredients -->
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="ingredients" name="ingredients" class="validate materialize-textarea"
+          required>{{- recipe.ingredients -}}</textarea>
+        <label for="ingredients">Ingredients</label>
+      </div>
+    </div>
+
+    <!--Method  -->
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="method" name="method" class="validate materialize-textarea"
+          required>{{- recipe.method -}}</textarea>
+        <label for="method">Method</label>
+      </div>
+    </div>
+    <!-- Vegetarian  -->
+    <div class="row teal accent-3 ">
+      <div class="input-field col s11">
+        <div class="switch ">
+          <label for="veg_no_veg" class="black-text">
+            <strong>Non Vegetrain</strong>
+            {% if recipe.veg_no_veg == "on" %}
+            <input type="checkbox" id="veg_no_veg" name="veg_no_veg" checked>
             {% else %}
-            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+            <input type="checkbox" id="veg_no_veg" name="veg_no_veg">
             {% endif %}
-            {% endfor %}
-          </select>
-          <label>Recipe Category</label>
-        </div>
-      </div>
-      <!-- Image url -->
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="img_url" name="img_url" type="url" pattern="https://.*" class="validate"
-            value="{{ recipe.img_url }}" required>
-          <label for="img_url">Image url</label>
-          <span class="helper-text">If you don't url of image, keep the default one.</span>
-        </div>
-      </div>
-
-      <!-- Ingredients -->
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea id="ingredients" name="ingredients" type="text" class="validate materialize-textarea"
-            required>{{- recipe.ingredients -}}</textarea>
-          <label for="ingredients">Ingredients</label>
-        </div>
-      </div>
-
-      <!--Method  -->
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea id="method" name="method" type="text" class="validate materialize-textarea"
-            required>{{- recipe.method -}}</textarea>
-          <label for="method">Method</label>
-        </div>
-      </div>
-      <!-- Vegetarian  -->
-      <div class="row teal accent-3 ">
-        <div class="input-field col s11">
-          <div class="switch ">
-            <label for="veg_no_veg" class="black-text">
-              <strong>Non Vegetrain</strong>
-              {% if recipe.veg_no_veg == "on" %}
-              <input type="checkbox" id="veg_no_veg" name="veg_no_veg" checked>
-              {% else %}
-              <input type="checkbox" id="veg_no_veg" name="veg_no_veg">
-              {% endif %}
-              <span class="lever "></span>
-              <strong>Vegetarian</strong>
-            </label>
-          </div>
-        </div>
-      </div>
-      <!-- Add Recipe Button -->
-      <div class="row ">
-        <div class="col teal accent-3 s12 center-align ">
-          <button class=" waves-effect waves-light btn btn-pad red  shadow-txt-1"><a class="white-text"
-              href="{{ url_for('profile', username=session['user']) }}">Cancel</a></button>
-
-          <button class=" waves-effect waves-light btn-small btn-pad green shadow-txt-1"><a class="white-text"
-              href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"></a>Edit</button>
+            <span class="lever "></span>
+            <strong>Vegetarian</strong>
+          </label>
         </div>
       </div>
     </div>
+    <!-- Add Recipe Button -->
+    <div class="row center-align">
+        <button class=" waves-effect waves-light btn-small btn-pad green shadow-txt-1"> Edit</button>
+    </div>
+
   </form>
+  <div class="row center-align ">
+    <div class="col teal accent-3 s12">
+      <a class="white-text" href="{{ url_for('profile', username=session['user']) }}">
+        <h5 class=" waves-effect waves-light btn btn-pad red  shadow-txt-1">
+          Cancel
+        </h5>
+      </a>
+    </div>
+  </div>
 </div>
+</div>
+
 
 {% endblock %}

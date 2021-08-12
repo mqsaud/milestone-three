@@ -54,10 +54,16 @@
     <div class="row container">
         <div class="card-panel">
             <h5 class="capital">Shared by: {{ recipe.shared_by }}</h5>
-            <!-- The share buttons were added with sharethis.com -->
-            <div class="sharethis-inline-share-buttons"></div>
+            <div class="center-align ">
+            <a class=" pad-pad center-align " href="{{ url_for('get_recipes') }}">
+                <i class="fas fa-arrow-circle-left btn btn-pad black-text teal accent-3">
+                 Back to recipes 
+                </i>
+            </a>
+        </div>
         </div>
     </div>
+    
 </div>
 
 {% endblock %}

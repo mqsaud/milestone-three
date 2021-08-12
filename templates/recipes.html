@@ -52,9 +52,11 @@
             <p class="capital"><strong >Category:</strong> {{ recipe.category_name }}</p>
             <p class="capital"><em><strong >Shared by:</strong> {{ recipe.shared_by }}</em></p>
             <div class="col  s12 center-align ">
-                <button class="waves-effect waves-light btn btn-pad teal accent-3"><a
-                        href="{{ url_for('recipe_display', recipe_id=recipe._id) }}" class="black-text">Learn More
-                        &nbsp<i class="fas fa-angle-double-right"></i></a></button>
+                <a href="{{ url_for('recipe_display', recipe_id=recipe._id) }}" class="black-text waves-effect waves-light btn btn-pad teal accent-3">
+                Learn More &nbsp;
+                <i class="fas fa-angle-double-right"></i>
+                </a>
+                
             </div>
             </div>
         </div>
