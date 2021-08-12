@@ -75,16 +75,36 @@ body{
     margin: 0;
 }
 
-.footer{
-    position: fixed;
-    bottom: 0;
-} 
+
 .home-btn-hite{
     height: 100px;
 } 
 .home-btn-mrgn{
     margin-top: 22px;
 }
+
+
+/* Footer */
+.footer{
+    font-size: 1.5rem;
+}
+footer ul{
+    list-style: none;
+}
+
+footer ul li{
+    display: inline-block;
+    font-size: 2rem;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+/* Media screens */
 @media only screen and (min-width : 992px){
 
     .margin-lf{

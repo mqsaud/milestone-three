@@ -40,6 +40,17 @@
         </picture>
     </div>
 </div>
+<section>
+    <picture>
+        <!-- Image Credit: https://woolworths.scene7.com/is/image/woolworthsgroupprod/2006-chicken-soup:Desktop-1300x658 -->
+        <source media="(min-width:1450px)" srcset="{{ url_for('static', filename='images/chicken-soup.jpg')}}">
+        <!-- Image Credit: https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/lettuce_soup_89522_16x9.jpg -->
+        <source media="(min-width:768px)" srcset="{{ url_for('static', filename='images/lettuce_soup.jpg')}}">
+        <!-- Image Credit: https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/chicken_and_sweetcorn_67673_16x9.jpg -->
+        <img src="{{ url_for('static', filename='images/chicken_and_sweetcorn_soup.jpg')}}" alt="Soup"
+            style="width:100%;">
+    </picture>
+</section>
 
 <a href="{{ url_for('get_recipes') }}">
     <div class="col card s12  margin-zero teal accent-3 center-align home-btn-hite">
