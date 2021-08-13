@@ -308,7 +308,13 @@ For future maintainability CSS and all HTML pages are divided into sections. Mea
 All cotents are written by me. 
  
 ### Media 
-Most of the pictures are taken from internet. All credits are given at the point of use.  
+Most of the pictures are taken from internet. All credits are given at the point of use. 
+
+### Credit
+- The recipes are taken from following websites.  
+- https://food.ndtv.com/  
+- https://healthiersteps.com/recipe/tamarind-juice-recipe/  
+- https://www.goodto.com/recipes/banana-smoothie  
 
 ### Acknowledgment
 My mentor for his support and feedback.   
