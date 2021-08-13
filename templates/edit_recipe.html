@@ -44,8 +44,7 @@
     <!-- Image url -->
     <div class="row">
       <div class="input-field col s12">
-        <input id="img_url" name="img_url" type="url" pattern="https://.*" class="validate" value="{{ recipe.img_url }}"
-          required>
+        <input id="img_url" name="img_url" type="url" pattern="https://.*" class="validate" value="{{ recipe.img_url }}">
         <label for="img_url">Image url</label>
         <span class="helper-text">If you don't url of image, keep the default one.</span>
       </div>
@@ -66,6 +65,15 @@
         <textarea id="method" name="method" class="validate materialize-textarea"
           required>{{- recipe.method -}}</textarea>
         <label for="method">Method</label>
+      </div>
+    </div>
+     <!-- Tools -->
+     <div class="row">
+      <div class="input-field col s12">
+        <textarea id="tools" name="tools" class="validate materialize-textarea">
+        {{- recipe.tools -}} 
+        </textarea>
+        <label for="tools">Tools</label>
       </div>
     </div>
     <!-- Vegetarian  -->

@@ -98,6 +98,7 @@ def add_recipe():
                 "img_url": request.form.get("img_url"),
                 "ingredients": request.form.get("ingredients").lower(),
                 "method": request.form.get("method").lower(),
+                "tools": request.form.get("tools").lower(),
                 "shared_by": session["user"],
                 "veg_no_veg": veg_no_veg
             }
@@ -121,6 +122,7 @@ def edit_recipe(recipe_id):
             "img_url": request.form.get("img_url"),
             "ingredients": request.form.get("ingredients").lower(),
             "method": request.form.get("method").lower(),
+            "tools": request.form.get("tools").lower(),
             "shared_by": session["user"],
             "veg_no_veg": veg_no_veg
         }

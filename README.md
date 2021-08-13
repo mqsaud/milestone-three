@@ -121,6 +121,8 @@ As the site grows, there will be more recipes; therefore, search functionality h
 
     method --> Cooking Procedure
 
+    tools
+
     veg_no_veg --> Is the recipe vegetarian or non-vegetarian.
 
     added_by

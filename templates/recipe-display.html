@@ -49,6 +49,12 @@
                 <p>{{ method }}</p>
                 {% endfor %}
             </div>
+            <div class="card-panel recipe_details">
+                <h4>Tools</h4>
+                {% for tool in recipe.tools.splitlines() %}
+                <p>{{ tool }}</p>
+                {% endfor %}
+            </div>
         </div>
     </div>
     <div class="row container">
