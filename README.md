@@ -30,8 +30,6 @@ To visit the website please click [Here](https://milestone-three-pro.herokuapp.c
 
 - [**Deployment**](#deployment)
 
-- [**Credits**](#credits)
-
 ## User Experience (UX)
 
 ### Project Goals
@@ -256,11 +254,63 @@ Cloning the repository makes a copy of the of the repository, download it and st
 To clone the repository on the local computer "GitHub Desktop" ,"Git"  and microsoft "VS Code" must be installed on the local computer
 
 
-To make a clone of "mqsaud/milestone-three", follow the following steps:
-1. Visit the main repository of milestone-three [here](https://github.com/mqsaud/milestone-three)
-2. Click on the button with the text **"Code"**.
+To make a clone of "mqsaud/milestone-three", follow the following steps:  
+1. Visit the main repository of milestone-three [here](https://github.com/mqsaud/milestone-three)  
+2. Click on the button with the text **"Code"**.  
 3. Click on **“Open with GitHub Desktop”** and follow the on screen instructions, a cloned local copy from your hard disk will open in "VS Code"  
 
+
+### Development-Life-cycle
+The development life cycle of the project consists of the following steps.   
+1. Concept.  
+2. Feasibility and Research  
+3. User experience and sketch  
+4. Coding   
+5. Testing  
+6. Hosting  
+7. Future Maintainability  
+
+#### 1. Concept
+The Project starts from an Idea or Concept. In this Project, the concept of a food shop website and a Plant shop were selected.  
+
+#### 2. Feasibility and Research
+I discussed the feasibility of these concepts with my mentor, and he gave an okay signal for the Soup and Drink shop website  
+
+#### 3. User Experience and sketch
+Using the User Experience guidelines, I draw the sketches of  all pages of the website. I used Balsamiq wireframe software to draw the sketches.  
+
+#### 4. Coding
+HTML5, CSS3, Python and javaScript are the main software used to build this project. Materializecss framework used to give a stylish and professional look to the project. Github and gitpod online platform was used to write and save the project. Gitpod's version control system was used for version control. Microsoft VS Code IDE  built-in gitpod was used for code writing. MongoDB plateform was used as a database storage and Heroku was to host the project.  
+
+#### 5. Testing
+Two methods were adopted to test this project.  
+a. Manual Testing  
+b. Third-Party Test services  
+
+##### a. Manual Testing
+In this method, the website was opened in different web browsers and checked every page, link and button.  
+##### b. Third Party Testing services
+W3C validation services were used to validate HTML and CSS files.  
+I used  [JSHINT](https://jshint.com/) to check validity of my JS code.    
+Chrome Lighthouse Dev tool was used to check the website performance.  
+https://responsivedesignchecker.com/ was used to check the responsiveness of the website.  
+
+#### 6. Hosting  
+Heroku.com cloud hosting service used to host the website.
+
+#### 7. Future Maintainability
+For future maintainability CSS and all HTML pages are divided into sections. Meaningful names of HTML IDs and CLASSes were chosen to facilitate the developer who may work on this project  in future.
+
+
+### Contents 
+All cotents are written by me. 
+ 
+### Media 
+Most of the pictures are taken from internet. All credits are given at the point of use.  
+
+### Acknowledgment
+My mentor for his support and feedback.   
+Code Institute tutor support
 
 #### [Back to Contents](#contents)
 
