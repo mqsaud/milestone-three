@@ -41,22 +41,36 @@
     </div>
 </div>
 <section>
-    <picture>
-        <!-- Image Credit: https://woolworths.scene7.com/is/image/woolworthsgroupprod/2006-chicken-soup:Desktop-1300x658 -->
-        <source media="(min-width:1450px)" srcset="{{ url_for('static', filename='images/chicken-soup.jpg')}}">
-        <!-- Image Credit: https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/lettuce_soup_89522_16x9.jpg -->
-        <source media="(min-width:768px)" srcset="{{ url_for('static', filename='images/lettuce_soup.jpg')}}">
-        <!-- Image Credit: https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/chicken_and_sweetcorn_67673_16x9.jpg -->
-        <img src="{{ url_for('static', filename='images/chicken_and_sweetcorn_soup.jpg')}}" alt="Soup"
-            style="width:100%;">
-    </picture>
+    <div class=" row margin-zero teal accent-3">
+        <div class="col s12 m6">
+            <picture>
+                <!-- Image Credit: https://i.pinimg.com/originals/3b/be/a9/3bbea9462615e526c02fb1b2d4ca3d42.jpg -->
+                <source media="(min-width:1450px)" srcset="{{ url_for('static', filename='images/imliwater.jpg')}}">
+                <!-- Image Credit: https://www.chiquita.com/wp-content/uploads/2020/03/Easy-Banana-Shake.jpg -->
+                <source media="(min-width:768px)" srcset="{{ url_for('static', filename='images/banana-shake.jpg')}}">
+                <!-- Image Credit: https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/chicken_and_sweetcorn_67673_16x9.jpg -->
+                <img src="{{ url_for('static', filename='images/blueberry-smoothies.jpg')}}" alt="Smoothies"
+                    style="width:100%;">
+            </picture>
+        </div>
+        <div class="col s12 m6 pad-zero">
+            <h2 class=" center-align ">Welcom</h2>
+            <p class="center-align">
+                Soup is in the top place in liquid food. It is easy to prepare as compared to other cooked food.
+                People all over the world like the soup. If you are a soup lover, this is the right place to enjoy
+                the hot delicious soups and other drinks. We have a variety of hot soups and cold drinks.
+                If you want to prepare a soup or cold beverage, please visit our Recipes section.
+            </p>
+        </div>
+    </div>
 </section>
+
 
 <a href="{{ url_for('get_recipes') }}">
     <div class="col card s12  margin-zero teal accent-3 center-align home-btn-hite">
-            <h4 class="center-align btn-large home-btn-mrgn black-text teal accent-3 ">
-                Recipes
-            </h4>
+        <h4 class="center-align btn-large home-btn-mrgn black-text teal accent-3 ">
+            Recipes
+        </h4>
     </div>
 </a>
 

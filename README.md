@@ -48,11 +48,10 @@ CSS, Flask, HTML, JavaScript, MongoDB and Python
 As a new user, I want to achieve the following goals.  
 a- I want to be able to view all shared recipes.    
 b- I want to be able to register on the website.  
-c- I want to be able to share/upload my recipes.  
-d- I want to be able to edit/delete my recipes.  
+c- I want to be able to share/upload my recipes.    
 ### Returning User Goals:  
-a- As a returning user, I want to be able to edit/update my recipes posted on the website.  
-b- As a returning user, I want to be able to delete my recipes posted on the website.  
+a- As a returning user, I want to be able to log in and log out.  
+b- As a returning user, I want to be able to edit ot delete my recipes posted on the website.   
 ### Site Owner User Goals:  
 a- As the site owner, I want to share the recipes uploaded on this website.  
 b- As the site owner, I want to attract the audience with the nice and attractive design of the website.  
@@ -179,8 +178,95 @@ As the site grows, there will be more recipes; therefore, search functionality h
 
 ### Code validity
 
-**PEP8 Compliant:**
+**PEP8 Compliant:**  
+I used [PEP8](http://pep8online.com/) to check my mst.py files complied with the PEP8 requirements. The results was no error.
+![pep8](static/images/pep8.jpg)  
 
-   I have used [PEP8](http://pep8online.com/) to check my mst.py files complied with the PEP8 requirements. The results was no error
-   ![pep8](static/images/pep8.jpg)
+**W3C CSS Validator**   
+I used the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to check the validity of my CSS file. Test was passed with **no** error.  
+
+**W3C HTML Validator**  
+I used the [W3C HTML Validator](https://validator.w3.org) to check the validity of my HTML code for each page. Test was passed with **no** error, except Flask errors.  
+
+**JSHINT**  
+I used  [JSHINT](https://jshint.com/) to check validity of my JS code and ther was no error.  
+
+## Testing User Stories
+
+### Testing New User Goals:    
+* ### a- I want to be able to view all shared recipes.   
+On the landing page, I found two links/buttons, one on the navbar and the other just above the footer. I pressed one of the buttons, a recipe page opened. There I found all the recipes uploaded by many users.  
+A recipe search function is also provided to search recipes.  
+
+* ### b- I want to be able to register on the website.  
+To register myself on this website, I clicked on the register link that opened the registration page. After filling in the relevant information, I pressed the "Register" button and a flash message " Registration Successful!" appeared. My profile page opened.  
+
+* ### c- I want to be able to share/upload my recipes.  
+To share/upload my recipe, I clicked on the "Add Recipe" link on the navbar. A recipe form appeared. I fill in all the required information and click on the "Add Recipe" button at the bottom of the form. A flash message "Your Recipe Successfully Added ". And Recipes page opened where I can see my recently uploaded recipe.  
+
+### Returning User Goals:  
+* ### a- As a returning user, I want to be able to log in and log out.  
+I clicked on the "Log In" link on the home page. The login form appeared. After filling in the required fields, I clicked on the "Log In" button. My profile page opened with all my uploaded recipes.
+To log out, I clicked on the "Log Out" link.   The login page opened with a flash message " You have been logged out."  
+* ### b- As a returning user, I want to be able to edit or delete my recipes posted on the website.  
+To edit or delete the recipe, the user must be logged in.  After login, I opened my profile page and clicked on the edit button given below the recipe. "Edit Recipe" form opened.  After the required editing, I clicked on the edit button. The recipe was updated with the flash message "Your Recipe Successfully Updated" Then I clicked the cancel button, my profile page opened again.  
+To delete the recipe, I clicked on the "Delete" button on the recipe on my profile page. A following popup warning message appeared with YES and NO buttons.  
+"Delete For All Eternity?  
+Warning! If you press " YES ", The recipe will be permanently deleted, and we will not be able to recover it.  
+Are you sure you want to permanently delete this recipe? "  
+I clicked on the YES button, and the recipe  was deleted with the flash message "Recipe has been Successfully Deleted"  
+### Site Owner User Goals:  
+* ### a- As the site owner, I want to share the recipes uploaded on this website.  
+When a user visits the site and clicks on the "Recipes" link available on the navbar, the recipes page opens, displaying all the recipes. When the user clicks on the "Learn More" button, a new page opens with all the details of that recipe.
+
+* ### b- As the site owner, I want to attract the audience with the nice and attractive design of the website.  
+The design of the website is very beautiful. It has eye-catching images. The navigation is straightforward and easy.  
+
+### Further Testing  
+- Browsers  
+The website was tested on Chrom, Firefox, Cclean, SeaMonkey, Edge, Opera and InternetExplorer. It is working great on all browsers.  Only InternetExplorer has an issue with <picture></picture> command. This command is not compatible with the InternetExplorer. The InternetExplorer only run <img> command.  
+![image](static/images/lighthouse-result.jpg)
+
+- Mobile Devices  
+The website was tested on Samsung A70 and OPPO A74 5G.  It works well on these devices.  
+
+## Bugs
+- The "Add Recipe" page was available without logging in by typing its address on the browser's address bar.  
+Solution: Add session cookie check code in the "add_recipe" function that redirects the user to the login page if the user was not logged in.  
+- A part of the logo went outside the navbar on mobiles devices due to the white spaces in the logo.
+Solution: To remove the white spaces, I add "&nbsp"; at the white spaces of the logo.  
+
+
+### Deploying Website at Heroku.com
+1- In the terminal, create a requirements.txt and Procfile using the following commands:  
+
+    - a: pip3 freeze --local > requirements.txt  
+    - b: echo web: python mst.py > Procfile  
+
+2- Commit the these two new files to GitHub  
+3- In Heroku.com account I created a new App called "milestone-three-pro" and chose the region Europe.  
+4. In deploy sections which opened automatically after creating the app, I clicked on the GitHub logo to connect my GitHub repository with this Heroku account.  
+5. In search bar I typed my GitHub repository name "milestone-three" and hit search. When the correct repository was found I clicked the ‘connect’ button.  
+6. Next, I clicked on ‘Settings’, and then on "Reveal Config Vars" tab. I filled in the Config Vars with relevant information same as the info was stored in env.py file in gitpod.  
+7. In Deploy, I clicked "Enable Automatic Deploy"  from the Main branch.  
+8. Then clicked ‘Deploy Branch’ and the app was deployed successfully at the URL https://milestone-three-pro.herokuapp.com/  
+
+### To Create a Clone of the milestone-three Repository  
+Cloning the repository makes a copy of the of the repository, download it and store on your local computer.  
+To clone the repository on the local computer "GitHub Desktop" ,"Git"  and microsoft "VS Code" must be installed on the local computer
+
+
+To make a clone of "mqsaud/milestone-three", follow the following steps:
+1. Visit the main repository of milestone-three [here](https://github.com/mqsaud/milestone-three)
+2. Click on the button with the text **"Code"**.
+3. Click on **“Open with GitHub Desktop”** and follow the on screen instructions, a cloned local copy from your hard disk will open in "VS Code"  
+
+
+#### [Back to Contents](#contents)
+
+
+
+
+
+
 
