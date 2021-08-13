@@ -83,6 +83,11 @@ body{
     margin-top: 22px;
 }
 
+.txt-mrgn{
+
+    margin-top:25px ;
+}
+
 
 /* Footer */
 .footer{
@@ -110,6 +115,9 @@ footer {
     .margin-lf{
         margin-left: 10%;
     } 
+    .txt-mrgn{
+        margin-top: 100px;
+    }
 }
 
 @media only screen and (min-width : 1600px){
